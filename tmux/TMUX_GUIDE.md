@@ -16,7 +16,7 @@ Panes are splits within a single window.
 
 | Action | Command |
 | --- | --- |
-| **Split Vertically** | `Ctrl + a` then ` |
+| **Split Vertically** | `Ctrl + a` then `\|` |
 | **Split Horizontally** | `Ctrl + a` then `-` |
 | **Switch Panes (Mouse)** | **Click** anywhere in a pane |
 | **Switch Panes (Keyboard)** | `Alt + Arrow Keys` (No prefix needed!) |
