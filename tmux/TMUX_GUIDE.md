@@ -2,6 +2,21 @@
 
 This guide assumes you are using **Alacritty** with the **JetBrains Mono Nerd Font** and the custom **`.tmux.conf`** provided.
 
+## 📥 Installation & Config Placement
+
+### Before You Start
+Place the **`.tmux.conf`** file in the correct location for your platform:
+
+| Platform | Config File Location |
+| --- | --- |
+| **Windows** | `%USERPROFILE%\.tmux.conf`<br>or `C:\Users\<username>\.tmux.conf` |
+| **WSL** | `~/.tmux.conf` (in your home directory) |
+| **macOS** | `~/.tmux.conf` (in your home directory) |
+
+> **Note:** If you're on macOS with Homebrew, install tmux first:<br>`brew install tmux`
+
+---
+
 ## ⌨️ The Prefix Key
 
 In this configuration, the default "Prefix" has been changed to **`Ctrl + a`**.
