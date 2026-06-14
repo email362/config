@@ -59,6 +59,16 @@ A guide to the high-performance, cross-platform terminal environment configured 
 * **Repo**: `email362/config`
 * **Description**: This repo is the hub of all configuration files (`alacritty.toml`, `.tmux.conf`, etc.) used to replicate this development environment across devices.
 
+#### **WSL Git Credentials**
+
+When using Git inside WSL2 with Git Credential Manager installed on Windows, point WSL Git at the Windows credential helper:
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+```
+
+This lets `git push` from WSL reuse the Windows GitHub authentication flow.
+
 ### **3. Implementation Status**
 
 * **[COMPLETED]** Alacritty installation and configuration.
