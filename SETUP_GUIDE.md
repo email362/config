@@ -14,6 +14,7 @@ A guide to the high-performance, cross-platform terminal environment configured 
 
 * **Role**: Provides raw rendering speed via GPU acceleration.
 * **Config Location**: `~/.config/alacritty/alacritty.toml` (macOS) / `%APPDATA%\alacritty\alacritty.toml` (Windows).
+* **Windows Prerequisite**: Install JetBrainsMono Nerd Font in Windows so Alacritty can render Nerd Font icons.
 * **Key Settings**:
 * **Font**: JetBrains Mono Nerd Font.
 * **Shell (Windows)**: Configured to launch `wsl.exe` directly.
@@ -29,6 +30,17 @@ A guide to the high-performance, cross-platform terminal environment configured 
 * **Prefix**: Remapped to `Ctrl+a` (from `Ctrl+b`).
 * **Splits**: `|` (vertical) and `-` (horizontal).
 * **Performance**: `set -s escape-time 0` (removes Neovim input lag).
+
+
+#### **Editor: Neovim / LazyVim**
+
+* **Role**: Primary terminal editor running inside WSL or macOS shell sessions.
+* **Config Location**: `~/.config/nvim`.
+* **Starter**: `LazyVim/starter`.
+* **Leader Key**: `Space`.
+* **Enabled Extras**: TypeScript, JSON, Python, Prettier, ESLint.
+* **Useful Commands**: `:Lazy`, `:Mason`, `:checkhealth`.
+* **Guide**: See `neovim/NEOVIM_GUIDE.md`.
 
 
 
@@ -50,7 +62,9 @@ A guide to the high-performance, cross-platform terminal environment configured 
 ### **3. Implementation Status**
 
 * **[COMPLETED]** Alacritty installation and configuration.
+* **[COMPLETED]** Windows JetBrainsMono Nerd Font installation for Alacritty rendering.
 * **[COMPLETED]** tmux installation and keybinding setup.
+* **[COMPLETED]** LazyVim/Neovim setup inside WSL.
 * **[COMPLETED]** SSH config and "homelab" key mapping.
 * **[PENDING]** Zsh setup (installation and Starship prompt configuration).
 

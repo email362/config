@@ -11,6 +11,33 @@ Alacritty reloads **instantly** when you save this file.
 
 ---
 
+## 🔤 Windows Font Setup
+
+Alacritty on Windows needs the Nerd Font installed in **Windows**, not WSL. WSL provides the shell and dev tools, but the Windows Alacritty app does the font rendering.
+
+Preferred install:
+
+```powershell
+winget install DEVCOM.JetBrainsMonoNerdFont
+```
+
+Manual fallback:
+
+1. Download **JetBrainsMono Nerd Font** from Nerd Fonts.
+2. Extract the archive.
+3. Select the `.ttf` files, right-click, and choose **Install for all users**.
+4. Restart Alacritty.
+
+Confirm `alacritty.toml` uses:
+
+```toml
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+```
+
+---
+
 ## ⌨️ Essential Keybindings
 
 Since we are using **tmux**, these are the Alacritty-specific shortcuts you'll use most:
@@ -31,10 +58,8 @@ Since we are using **tmux**, these are the Alacritty-specific shortcuts you'll u
 Alacritty follows the standard Unix "select to copy" behavior.
 
 * **Copy:** Simply **highlight text** with your mouse (it is copied to the clipboard automatically in most setups).
-* **Paste:** * **macOS:** `Cmd + V`
-* **Windows:** `Ctrl + Shift + V`
-
-
+* **Paste (macOS):** `Cmd + V`
+* **Paste (Windows):** `Ctrl + Shift + V`
 * **Block Select:** Hold **Shift** while dragging the mouse to select a rectangular block of text (useful for columns of data).
 * **Open URL:** Hold **Cmd** (Mac) or **Ctrl** (Windows) and **click** any URL in the terminal to open it in your browser.
 
@@ -55,5 +80,6 @@ If you notice any lag while working on large Atlassian repos or complex WSL buil
 Because you use both macOS and WSL, your daily loop should look like this:
 
 1. **Launch Alacritty.**
-2. **Type `tmux a**` (This resumes your work exactly where you left off, whether it was a build, a `git` status, or an open `nvim` file).
-3. **Use `Ctrl + a**` (your tmux prefix) to move between your tasks.
+2. **Type `tmux a`** (This resumes your work exactly where you left off, whether it was a build, a `git` status, or an open `nvim` file).
+3. **Use `Ctrl + a`** (your tmux prefix) to move between your tasks.
+4. **Open `nvim`** inside tmux when editing code in WSL.
