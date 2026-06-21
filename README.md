@@ -8,7 +8,7 @@ This repo is the hub for the terminal stack:
 * **tmux** for panes, windows, and session persistence.
 * **Neovim / LazyVim** as the terminal editor inside WSL or macOS shell sessions.
 * **Zsh / Starship** setup notes for shell customization.
-* **WSL Git Credential Manager** notes for HTTPS Git authentication from WSL.
+* **WSL Git credentials** for HTTPS via Git Credential Manager and SSH remotes via Windows `ssh.exe`.
 * **Alacritty** as legacy/reference terminal material.
 
 ## Repo Layout
@@ -32,7 +32,7 @@ This repo is the hub for the terminal stack:
 4. Place the WezTerm config at `%USERPROFILE%\.wezterm.lua` on Windows or `$HOME/.wezterm.lua` on macOS/Linux.
 5. Place the tmux config at `~/.tmux.conf`.
 6. Set up LazyVim/Neovim inside WSL or your macOS shell.
-7. Configure WSL Git Credential Manager if using HTTPS Git remotes from WSL.
+7. Configure WSL Git credentials: Git Credential Manager for HTTPS remotes and Windows `ssh.exe` for SSH remotes.
 8. Keep the Alacritty docs/config as legacy reference material.
 
 See [`SETUP_GUIDE.md`](SETUP_GUIDE.md) for the full setup flow and [`wezterm/WEZTERM_GUIDE.md`](wezterm/WEZTERM_GUIDE.md) for the Windows host installation boundary.

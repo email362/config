@@ -79,6 +79,22 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git
 
 This lets `git push` from WSL reuse the Windows GitHub authentication flow.
 
+For SSH remotes, WSL's native `/usr/bin/ssh` does not see Windows OpenSSH keys by default. Use Windows `ssh.exe` from WSL so Git uses the same GitHub key already available on the Windows host:
+
+```bash
+git config --global core.sshCommand ssh.exe
+```
+
+This avoids creating or copying private keys into WSL.
+
+Quick checks:
+
+```bash
+ssh.exe -T git@github.com
+git config --global --get core.sshCommand
+git ls-remote git@github.com:email362/smart-scribe-api.git HEAD
+```
+
 ### **3. Implementation Status**
 
 * **[COMPLETED]** WezTerm guide and config template added as the primary terminal migration path.
