@@ -10,26 +10,36 @@ A guide to the high-performance, cross-platform terminal environment configured 
 
 ### **1. Core Components**
 
-#### **Terminal Emulator: Alacritty**
+#### **Terminal Emulator: WezTerm**
 
-* **Role**: Provides raw rendering speed via GPU acceleration.
-* **Config Location**: `~/.config/alacritty/alacritty.toml` (macOS) / `%APPDATA%\alacritty\alacritty.toml` (Windows).
-* **Windows Prerequisite**: Install JetBrainsMono Nerd Font in Windows so Alacritty can render Nerd Font icons.
+* **Role**: Primary terminal emulator for GPU rendering, font rendering, clipboard integration, and launching WSL on Windows.
+* **Guide**: See [wezterm/WEZTERM_GUIDE.md](wezterm/WEZTERM_GUIDE.md).
+* **Config Location**: `$HOME/.wezterm.lua` (macOS/Linux) / `%USERPROFILE%\.wezterm.lua` (Windows).
+* **Repo Config Source**: `config/wezterm/wezterm.lua`.
+* **Windows Install Boundary**: Install WezTerm on the Windows host, not inside WSL. Use Windows PowerShell, the official installer, or the portable zip from Windows.
+* **Windows Prerequisite**: Install JetBrainsMono Nerd Font in Windows so WezTerm can render Nerd Font icons.
 * **Key Settings**:
-* **Font**: JetBrains Mono Nerd Font.
-* **Shell (Windows)**: Configured to launch `wsl.exe` directly.
-* **Shell (macOS)**: Configured to launch `/bin/zsh`.
+  * **Font**: JetBrains Mono Nerd Font.
+  * **Shell (Windows)**: Configured to launch WSL zsh through `wsl.exe`.
+  * **Shell (macOS)**: Configured to launch `/bin/zsh`.
 
+
+#### **Legacy Terminal Reference: Alacritty**
+
+* **Role**: Previous terminal emulator kept as reference material.
+* **Guide**: See `alacritty/ALACRITTY_GUIDE.md`.
+* **Config Location**: `~/.config/alacritty/alacritty.toml` (macOS) / `%APPDATA%\alacritty\alacritty.toml` (Windows).
+* **Repo Config Source**: `config/alacritty/alacritty.toml`.
 
 
 #### **Multiplexer: tmux**
 
-* **Role**: Manages tabs, splits, and session persistence since Alacritty is window-only.
+* **Role**: Manages panes, windows, and session persistence during the WezTerm migration.
 * **Config Location**: `~/.tmux.conf`.
 * **Key Changes**:
-* **Prefix**: Remapped to `Ctrl+a` (from `Ctrl+b`).
-* **Splits**: `|` (vertical) and `-` (horizontal).
-* **Performance**: `set -s escape-time 0` (removes Neovim input lag).
+  * **Prefix**: Remapped to `Ctrl+a` (from `Ctrl+b`).
+  * **Splits**: `|` (vertical) and `-` (horizontal).
+  * **Performance**: `set -s escape-time 0` (removes Neovim input lag).
 
 
 #### **Editor: Neovim / LazyVim**
@@ -57,7 +67,7 @@ A guide to the high-performance, cross-platform terminal environment configured 
 ### **2. Configuration Repository**
 
 * **Repo**: `email362/config`
-* **Description**: This repo is the hub of all configuration files (`alacritty.toml`, `.tmux.conf`, etc.) used to replicate this development environment across devices.
+* **Description**: This repo is the hub of all configuration files (`wezterm.lua`, `.tmux.conf`, etc.) used to replicate this development environment across devices.
 
 #### **WSL Git Credentials**
 
@@ -71,14 +81,15 @@ This lets `git push` from WSL reuse the Windows GitHub authentication flow.
 
 ### **3. Implementation Status**
 
-* **[COMPLETED]** Alacritty installation and configuration.
-* **[COMPLETED]** Windows JetBrainsMono Nerd Font installation for Alacritty rendering.
+* **[COMPLETED]** WezTerm guide and config template added as the primary terminal migration path.
+* **[COMPLETED]** Alacritty installation and configuration kept as legacy/reference material.
+* **[COMPLETED]** Windows JetBrainsMono Nerd Font installation for terminal icon rendering.
 * **[COMPLETED]** tmux installation and keybinding setup.
 * **[COMPLETED]** LazyVim/Neovim setup inside WSL.
 * **[COMPLETED]** SSH config and "homelab" key mapping.
-* **[PENDING]** Zsh setup (installation and Starship prompt configuration).
+* **[COMPLETED]** Zsh setup (installation and Starship prompt configuration).
 
-### **4. Zsh & Starship Setup Instructions (Pending Steps)**
+### **4. Zsh & Starship Setup Instructions (Reference)**
 
 **Step A: Install Zsh (WSL & Homelab)**
 Since macOS already has Zsh, run this on your Windows/Linux machines:
@@ -105,6 +116,47 @@ Add the following line to the bottom of your `~/.zshrc`:
 ```bash
 eval "$(starship init zsh)"
 
+```
+
+**What Starship Gives You**
+
+Starship makes the shell prompt context-aware. Without running extra commands, it can show useful development state such as:
+
+* Current directory.
+* Git branch.
+* Git status, including modified, staged, and untracked files.
+* Failed command status.
+* Runtime versions for Node, Python, Rust, Go, and other project types.
+* Active Python virtual environment.
+* Docker or Kubernetes context when relevant.
+* Duration for slow commands.
+* SSH or remote-machine context.
+
+The biggest day-to-day benefit is Git awareness: when you are inside a repo, the prompt shows the current branch and whether the working tree has changes.
+
+**Optional Starship Config**
+
+Starship works with defaults, but you can customize it with `~/.config/starship.toml`:
+
+```bash
+mkdir -p ~/.config
+touch ~/.config/starship.toml
+```
+
+Example minimal config:
+
+```toml
+add_newline = true
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+[directory]
+truncation_length = 3
+
+[cmd_duration]
+min_time = 1000
 ```
 
 

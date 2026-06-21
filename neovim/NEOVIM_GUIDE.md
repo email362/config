@@ -1,6 +1,6 @@
 # Neovim LazyVim Quick Start Guide
 
-This setup runs **Neovim inside WSL**, launched from **Alacritty on Windows** and usually managed inside **tmux**.
+This setup runs **Neovim inside WSL**, launched from **WezTerm on Windows** and usually managed inside **tmux**. Alacritty remains available in this repo as legacy/reference material.
 
 ## Configuration
 
@@ -8,7 +8,7 @@ This setup runs **Neovim inside WSL**, launched from **Alacritty on Windows** an
 * **Starter:** `LazyVim/starter`
 * **Leader Key:** `Space`
 
-The Windows Alacritty app renders the terminal, but Neovim itself runs in WSL. Keep the Neovim config and Linux CLI tools inside WSL.
+The Windows WezTerm app renders the terminal, but Neovim itself runs in WSL. Keep the Neovim config and Linux CLI tools inside WSL.
 
 ---
 
@@ -106,4 +106,4 @@ Then inside Neovim:
 :checkhealth
 ```
 
-Remaining `Snacks.image` health warnings are expected in Windows Terminal or Alacritty unless you use a terminal with an image protocol and install the extra image/PDF tooling. They do not block the normal LazyVim coding workflow.
+Remaining `Snacks.image` health warnings are expected unless your terminal image protocol and extra image/PDF tooling are configured. They do not block the normal LazyVim coding workflow.

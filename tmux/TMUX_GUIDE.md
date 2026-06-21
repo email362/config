@@ -1,6 +1,6 @@
-# 🚀 Tmux & Alacritty Quick Start Guide
+# Tmux & WezTerm Quick Start Guide
 
-This guide assumes you are using **Alacritty** with the **JetBrains Mono Nerd Font** and the custom **`.tmux.conf`** provided.
+This guide assumes you are using **WezTerm** with the **JetBrains Mono Nerd Font** and the custom **`.tmux.conf`** provided. Alacritty remains available in this repo as legacy/reference material.
 
 ## 📥 Installation & Config Placement
 
@@ -56,7 +56,7 @@ Windows are like browser tabs at the bottom of your screen.
 
 ## 💾 Session Management (The Persistence)
 
-Sessions keep your work alive even if you close Alacritty or your SSH connection drops.
+Sessions keep your work alive even if you close WezTerm or your SSH connection drops.
 
 | Action | Command |
 | --- | --- |
